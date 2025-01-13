@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+     <html lang="en">
+     <head>
+         <meta charset="UTF-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <title>Tripathi Weather App</title>
+         <link rel="stylesheet" href="styles.css">
+         <style>
+             * {
+                 margin: 0;
+                 padding: 0;
+                 font-family: 'Poppins', sans-serif;
+                 box-sizing: border-box;
+             }
+             body {
+                 background: linear-gradient(120deg, #6a11cb, #2575fc);
+                 color: #fff;
+                 display: flex;
+                 flex-direction: column;
+                 min-height: 100vh;
+             }
+             header {
+                 display: flex;
+                 justify-content: space-between;
+                 align-items: center;
+                 padding: 20px 40px;
+                 background: rgba(0, 0, 0, 0.6);
+                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                 position: sticky;
+                 top: 0;
+                 z-index: 1000;
+             }
+             header .logo {
+                 font-size: 26px;
+                 font-weight: bold;
+                 text-transform: uppercase;
+                 letter-spacing: 1px;
+                 color: #f7d354;
+             }
+             header nav a {
+                 margin-left: 25px;
+                 color: #fff;
+                 text-decoration: none;
+                 font-size: 16px;
+                 transition: color 0.3s;
+             }
+             header nav a:hover {
+                 color: #f7d354;
+             }
+             footer {
+                 background: rgba(0, 0, 0, 0.8);
+                 color: #f7d354;
+                 text-align: center;
+                 padding: 20px;
+                 font-size: 14px;
+                 box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
+                 position: relative;
+                 width: 100%;
+                 margin-top: 20px;
+             }
+             footer a {
+                 color: #fcb045;
+                 text-decoration: none;
+             }
+             footer a:hover {
+                 text-decoration: underline;
+             }
+             .card {
+                 width: 90%;
+                 max-width: 470px;
+                 background: rgba(0, 0, 0, 0.6);
+                 margin: 100px auto 20px auto;
+                 border-radius: 20px;
+                 padding: 40px 35px;
+                 text-align: center;
+                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                 flex: 1;
+             }
+             .search {
+                 width: 100%;
+                 display: flex;
+                 align-items: center;
+                 justify-content: space-between;
+             }
+             .search input {
+                 border: 0;
+                 outline: 0;
+                 background: #ebfffc;
+                 color: #555;
+                 padding: 10px 25px;
+                 height: 60px;
+                 border-radius: 30px;
+                 flex: 1;
+                 margin-right: 16px;
+                 font-size: 18px;
+             }
+             .search button {
+                 border: 0;
+                 outline: 0;
+                 background: #ebfffc;
+                 border-radius: 50%;
+                 width: 60px;
+                 height: 60px;
+                 cursor: pointer;
+             }
+             .search button img {
+                 width: 16px;
+             }
+             .weather-icon {
+                 width: 170px;
+                 margin-top: 30px;
+             }
+             .weather h1 {
+                 font-size: 50px;
+                 margin-bottom: 20px;
+                 animation: fadeInDown 1s ease;
+             }
+             .weather h2 {
+                 font-size: 45px;
+                 font-weight: 400;
+                 margin-top: -10px;
+             }
+             .details {
+                 display: flex;
+                 align-items: center;
+                 justify-content: space-between;
+                 padding: 0 20px;
+                 margin-top: 50px;
+             }
+             .col {
+                 display: flex;
+                 align-items: center;
+                 text-align: left;
+             }
+             .col img {
+                 width: 40px;
+                 margin-right: 10px;
+             }
+             .humidity, .wind {
+                 font-size: 28px;
+                 margin-top: -6px;
+             }
+             .weather {
+                 display: none;
+             }
+             .error {
+                 text-align: left;
+                 margin-left: 10px;
+                 font-size: 14px;
+                 margin-top: 10px;
+                 display: none;
+             }
+     
+             /* Animations */
+             @keyframes fadeIn {
+                 0% { opacity: 0; transform: translateY(10px); }
+                 100% { opacity: 1; transform: translateY(0); }
+             }
+             @keyframes fadeInDown {
+                 0% { opacity: 0; transform: translateY(-20px); }
+                 100% { opacity: 1; transform: translateY(0); }
+             }
+     
+             /* Responsive Design */
+             @media (max-width: 768px) {
+                 header {
+                     flex-direction: column;
+                     text-align: center;
+                     padding: 15px 20px;
+                 }
+                 header nav {
+                     margin-top: 10px;
+                 }
+                 header nav a {
+                     margin-left: 15px;
+                     font-size: 14px;
+                 }
+                 .card {
+                     width: 95%;
+                     margin: 20px auto 40px auto;
+                     padding: 20px 15px;
+                 }
+                 .search input {
+                     padding: 10px 20px;
+                     height: 50px;
+                     font-size: 16px;
+                 }
+                 .search button {
+                     width: 50px;
+                     height: 50px;
+                 }
+                 .weather-icon {
+                     width: 140px;
+                     margin-top: 20px;
+                 }
+                 .weather h1 {
+                     font-size: 60px;
+                 }
+                 .weather h2 {
+                     font-size: 35px;
+                 }
+                 .details {
+                     flex-direction: column;
+                     align-items: center;
+                     gap: 20px;
+                 }
+                 .col img {
+                     width: 30px;
+                 }
+                 .humidity, .wind {
+                     font-size: 24px;
+                 }
+             }
+             @media (max-width: 480px) {
+                 header .logo {
+                     font-size: 22px;
+                 }
+                 header nav a {
+                     font-size: 12px;
+                 }
+                 .card {
+                     width: 100%;
+                     padding: 15px 10px;
+                 }
+                 .search input {
+                     font-size: 14px;
+                     padding: 8px 15px;
+                 }
+                 .search button {
+                     width: 45px;
+                     height: 45px;
+                 }
+                 .weather h1 {
+                     font-size: 50px;
+                 }
+                 .weather h2 {
+                     font-size: 30px;
+                 }
+                 .details {
+                     padding: 0;
+                 }
+                 footer {
+                     font-size: 12px;
+                 }
+             }
+         </style>
+     </head>
+     <body>
+         <header>
+             <div class="logo">Tripathi Weather App</div>
+             <nav>
+                 <a href="index.html">Home</a>
+                 <a href="about.html">About</a>
+                 <a href="contact.html">Contact</a>
+             </nav>
+         </header>
+         <div class="card">
+             <div class="search">
+                 <input type="text" placeholder="Enter the city name" spellcheck="false">
+                 <button><img src="images/search.png" alt=""></button>
+             </div>
+             <div class="error">
+                 <p>Invalid City Name</p>
+             </div>
+             <div class="weather">
+                 <img src="images/rain.png" alt="weather-icon">
+                 <h1 class="temp">22°C</h1>
+                 <h2 class="city">New York</h2>
+                 <div class="details">
+                     <div class="col">
+                         <img src="images/humidity.png">
+                         <div>
+                             <p class="humidity">50%</p>
+                             <p>Humidity</p>
+                         </div>
+                     </div>
+                     <div class="col">
+                         <img src="images/wind.png">
+                         <div>
+                             <p class="wind">15 Km/h</p>
+                             <p>Wind Speed</p>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+         <footer>
+             &copy; 2025 Tripathi Weather App | Designed with ❤️ | <a href="#">Privacy Policy</a>
+         </footer>
+         <script>
+             const apiKey = "fd332a29bfaa8727ce7d33fbd7941bcd";
+             const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+             const searchBox = document.querySelector(".search input");
+             const searchBtn = document.querySelector(".search button");
+             const weatherIcon = document.querySelector(".weather img");
+             async function checkweather(city) {
+                 const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
+                 const data = await response.json();
+                 if (response.status == 404) {
+                     document.querySelector(".error").style.display = "block";
+                     document.querySelector(".weather").style.display = "none";
+                 } else {
+                     document.querySelector(".city").innerHTML = data.name;
+                     document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°C";
+                     document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
+                     document.querySelector(".wind").innerHTML = data.wind.speed + " km/h";
+                     if (data.weather[0].main == "Few Clouds") {
+                         weatherIcon.src = "images/clouds.png";
+                     } else if (data.weather[0].main == "Clear") {
+                         weatherIcon.src = "images/clear.png";
+                     } else if (data.weather[0].main == "Rain") {
+                         weatherIcon.src = "images/rain.png";
+                     } else if (data.weather[0].main == "Drizzle") {
+                         weatherIcon.src = "images/drizzle.png";
+                     } else if (data.weather[0].main == "Mist") {
+                         weatherIcon.src = "images/mist.png";
+                     }
+                     document.querySelector(".weather").style.display = "block";
+                     document.querySelector(".error").style.display = "none";
+                 }
+             }
+             searchBtn.addEventListener("click", () => {
+                 checkweather(searchBox.value);
+             });
+         </script>
+     </body>
+     </html>
+     

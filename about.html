@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Tripathi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background: linear-gradient(120deg, #6a11cb, #2575fc);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: rgba(0, 0, 0, 0.6);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        header .logo {
+            font-size: 26px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #f7d354;
+        }
+        header nav a {
+            margin-left: 25px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        header nav a:hover {
+            color: #f7d354;
+        }
+        .main-content {
+            flex: 1;
+            text-align: center;
+            padding: 80px 20px;
+        }
+        .main-content h1 {
+            font-size: 50px;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease;
+        }
+        .main-content p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeIn 1.5s ease;
+        }
+        .card {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            margin: 30px auto;
+            max-width: 500px;
+            text-align: left;
+            animation: slideIn 1.5s ease;
+        }
+        .card h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: #f7d354;
+        }
+        .card p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            color: #f7d354;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
+        }
+        footer a {
+            color: #fcb045;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInDown {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideIn {
+            0% { opacity: 0; transform: translateX(-50px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+                padding: 15px 20px;
+            }
+            header nav {
+                margin-top: 10px;
+            }
+            header nav a {
+                margin-left: 15px;
+                font-size: 14px;
+            }
+            .main-content h1 {
+                font-size: 36px;
+            }
+            .main-content p {
+                font-size: 16px;
+            }
+            .card {
+                padding: 20px;
+            }
+            .card h2 {
+                font-size: 24px;
+            }
+            .card p {
+                font-size: 14px;
+            }
+        }
+        @media (max-width: 480px) {
+            header .logo {
+                font-size: 22px;
+            }
+            header nav a {
+                font-size: 12px;
+            }
+            .main-content h1 {
+                font-size: 28px;
+            }
+            .main-content p {
+                font-size: 14px;
+            }
+            .card h2 {
+                font-size: 20px;
+            }
+            .card p {
+                font-size: 12px;
+            }
+            footer {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Tripathi Weather App</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="weather.html">Weather</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+    <div class="main-content">
+        <h1>About Me</h1>
+        <p>Hello! My name is <strong>Pranjal Tripathi</strong>. I am a passionate developer and currently pursuing my studies in Information and Technology at Galgotias College of Engineering and Technology.</p>
+        <div class="card">
+            <h2>Quick Details</h2>
+            <p><strong>Name:</strong> Pranjal Tripathi</p>
+            <p><strong>College:</strong> Galgotias College of Engineering and Technology</p>
+            <p><strong>Branch:</strong> Information and Technology</p>
+            <p><strong>Specialization:</strong> Web Development, Python Programming, and Application Design</p>
+        </div>
+    </div>
+    <footer>
+        &copy; 2025 Tripathi | Designed with ❤️ | <a href="#">Privacy Policy</a>
+    </footer>
+</body>
+</html>
+

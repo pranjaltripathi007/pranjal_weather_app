@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tripathi Weather App - Home</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background: linear-gradient(120deg, #6a11cb, #2575fc);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: rgba(0, 0, 0, 0.6);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        header .logo {
+            font-size: 26px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #f7d354;
+        }
+        header nav a {
+            margin-left: 25px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        header nav a:hover {
+            color: #f7d354;
+        }
+        .main-content {
+            flex: 1;
+            text-align: center;
+            padding: 80px 20px;
+        }
+        .main-content h1 {
+            font-size: 50px;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease;
+        }
+        .main-content p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeIn 1.5s ease;
+        }
+        .main-content .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(90deg, #f7d354, #fcb045);
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 30px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s ease;
+        }
+        .main-content .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(90deg, #fcb045, #f7d354);
+        }
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            color: #f7d354;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
+        }
+        footer a {
+            color: #fcb045;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInDown {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+                padding: 15px 20px;
+            }
+            header nav {
+                margin-top: 10px;
+            }
+            header nav a {
+                margin-left: 15px;
+                font-size: 14px;
+            }
+            .main-content h1 {
+                font-size: 36px;
+            }
+            .main-content p {
+                font-size: 16px;
+            }
+            .main-content .btn {
+                font-size: 16px;
+                padding: 12px 25px;
+            }
+        }
+        @media (max-width: 480px) {
+            header .logo {
+                font-size: 22px;
+            }
+            header nav a {
+                font-size: 12px;
+            }
+            .main-content h1 {
+                font-size: 28px;
+            }
+            .main-content p {
+                font-size: 14px;
+            }
+            .main-content .btn {
+                font-size: 14px;
+                padding: 10px 20px;
+            }
+            footer {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Tripathi Weather App</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+    <div class="main-content">
+        <h1>Welcome to Tripathi Weather App</h1>
+        <p>Discover the latest weather updates for any city worldwide. Stay informed with real-time and accurate forecasts at your fingertips.</p>
+        <a href="weather.html" class="btn">Go to Weather App</a>
+    </div>
+    <footer>
+        &copy; 2025 Tripathi Weather App | Designed with ❤️ | <a href="#">Privacy Policy</a>
+    </footer>
+</body>
+</html>
